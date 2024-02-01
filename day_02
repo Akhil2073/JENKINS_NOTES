@@ -1,0 +1,45 @@
+Variables:
+=====================
+It will store data, keeps changing as per time
+a =10
+name=raham
+USERDEFINED:
+-------------------
+1. LOCAL VARS: it will work inside job
+name=imthiaz
+echo "hai all my name is $name, $name is working for tcs, $name is from hyd"
+
+  2. GLOBAL VARS: it will work outside of job also.
+Dashboard -- › Manage Jenkins -- > System --variables -- ›add name: raham loc: pune
+› Global properties -- › Environment
+
+  3. JENKINS ENV VARS:
+it will given by Jenkins default
+user cant define or modify these values.
+============================================================================================================  
+PORT CHANGE:
+----------------------------------
+vim /usr/lib/systemd/system/jenkins.service
+  esc : set nu it prints the lines for the text in the vim editor --> goto 67th line
+67th line-- 8080(existing port)=8090 (modified port)
+systemctl daemon-reload
+systemctl restart jenkins. service 
+systemctl status jenkins. service
+==============================================================================================================
+PARAMETERS: 
+-------------------------------
+Way of passing input for jenkins jobs 
+    Choice: it will multiple inputs as a options 
+    string:
+    multi line string:
+    file: 
+    bool:
+========================================================
+PASSWORDLESS LOGIN:
+  vim /var/lib/jenkins/config.xml 
+  systemctl restart jenkins.service 
+  systemctl status jenkins.service
+=========================================================
+PLUGINS:
+1. job configuration history: to restore jenkins delete jobs
+2. BUILD HISTORY: to show entire build details of all jobs in jenkins
